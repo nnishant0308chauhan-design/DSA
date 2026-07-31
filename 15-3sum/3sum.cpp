@@ -1,40 +1,37 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        int left;
-        int right;
-        vector<vector<int>>ans;
+        vector<vector<int>> ans;
+        int right, left;
+        sort(nums.begin(),nums.end());
 
-        sort(nums.begin(), nums.end());
-        
-        for(int i=0;i<nums.size();i++){
-            if(i>0 && nums[i]==nums[i-1]){
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-             left=i+1;
-             right=nums.size()-1;
+            left = i + 1;
+            right = nums.size() - 1;
 
+            while (left < right) {
+                int sum = nums[left] + nums[right] + nums[i];
 
-             while(left<right){
-                int sum=nums[left]+nums[right]+nums[i];
-                if(sum==0){
-                   ans.push_back({nums[left] , nums[right],nums[i]});
-                   left++;
-                   right--;
-
-                   while(left<right && nums[left]==nums[left-1]){
-                        left++;
-                   }
-                   while(left<right && nums[left]==nums[left-1]){
-                        right--;
-                   }
-                }else if(sum<0){
+                if (sum == 0) {
+                    ans.push_back({nums[left], nums[right], nums[i]});
                     left++;
-                }else{
+                    right--;
+
+                    while (left < right && nums[left] == nums[left -1]) {
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right +1]) {
+                        right--;
+                    }
+                } else if (sum < 0) {
+                    left++;
+                } else {
                     right--;
                 }
-             }
-
+            }
         }
         return ans;
     }
