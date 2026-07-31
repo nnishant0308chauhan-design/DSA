@@ -5,36 +5,16 @@ public:
         int right=nums.size()-1;
         int k=nums.size()-1;
         vector<int>ans(nums.size());
-        
-        while(left<=right){
+
+        for(int i=nums.size()-1;i>=0;i--){
             if(abs(nums[left])>abs(nums[right])){
-                ans[k]=nums[left]*nums[left];
+                ans[i]=nums[left]*nums[left];
                 left++;
-                k--;
             }else{
-                ans[k]=nums[right]*nums[right];
+                ans[i]=nums[right]*nums[right];
                 right--;
-                k--;
             }
         }
         return ans;
-
     }
 };
-
-
-
-/*
-class Solution {
-public:
-    vector<int> sortedSquares(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++){
-            nums[i]=nums[i]*nums[i];
-        }
-        sort(nums.begin(),nums.end());
-        return nums;
-    }
-
-};
-
-*/
