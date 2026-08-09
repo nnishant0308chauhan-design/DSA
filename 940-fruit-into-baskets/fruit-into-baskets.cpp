@@ -10,6 +10,7 @@ public:
                if( !mpp.count(fruits[i])){
                    count++;
                }
+                mpp[fruits[i]]++;
             while(count>2){
                    mpp[fruits[left]]--;
                    if(mpp[fruits[left]]==0){
@@ -21,7 +22,7 @@ public:
             }
             
             ans=max(ans,i-left+1);
-            mpp[fruits[i]]++;
+           
 
         }
         return ans;
