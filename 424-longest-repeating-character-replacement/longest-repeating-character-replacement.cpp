@@ -9,18 +9,16 @@ public:
            mpp[s[i]]++;
            fre=max(fre,mpp[s[i]]);
 
-           while((i-left+1)-fre >k){
-                  mpp[s[left]]--;
-                  if(mpp[s[left]]==0){
-                    mpp.erase(mpp[s[left]]);
-                  }
-                  left++;
-
+           while((i-left+1)-fre>k){
+               mpp[s[left]]--;
+               if(mpp[s[left]]==0){
+                mpp.erase(s[left]);
+               }
+               left++;
            }
            ans=max(ans,i-left+1);
 
         }
         return ans;
-
     }
 };
