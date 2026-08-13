@@ -9,7 +9,7 @@ public:
         }
         int left=mini;
         int right=total;
-        while(left<right){
+        while(left<=right){
             int mid=(left+right)/2;
             int reqd=1;
             int curr=0;
@@ -22,7 +22,7 @@ public:
             }
 
             if(reqd<=days){
-                right=mid;
+                right=mid-1;
             }else{
                 left=mid+1;
             }
