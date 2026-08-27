@@ -2,6 +2,7 @@ class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int m=0;
+        
         for(int x:piles){
            m=max(m,x);
         }
